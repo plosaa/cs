@@ -1,0 +1,8 @@
+include:
+  - "数据结构/**/*.md"
+  - "数据结构/**/*.cpp"
+
+collections:
+  all_files:
+    output: true
+    permalink: /:path/:basename  # 保持原始URL路径
