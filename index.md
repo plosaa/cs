@@ -31,13 +31,17 @@
         {% assign subpath = page.path %}
 
         {% if ext == "md" %}
-        {% assign linkpath = subpath | replace: '.md', '.html' %}
+          {% if dirs.last == "README.md" %}
+            {% assign linkpath = subpath | replace: 'README.md', 'index.html' %}
+          {% else %}
+            {% assign linkpath = subpath | replace: '.md', '.html' %}
+          {% endif %}
         {% endif %}
 
         {% unless displayed_files contains linkpath %}
           {% assign displayed_files = displayed_files | push: linkpath %}
           <li>
-            <a href="{{ linkpath }}">{{ category }}/{{ subpath }}</a>
+            <a href="{{ linkpath }}">{{ linkpath }}</a>
           </li>
         {% endunless %}
       {% endif %}

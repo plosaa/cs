@@ -6,3 +6,6 @@ collections:
   all_files:
     output: true
     permalink: /:path/:basename  # 保持原始URL路径
+    
+include:
+  - _includes/head-custom.html
