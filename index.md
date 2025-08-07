@@ -30,6 +30,8 @@
         {% assign title = page.path %}
         {% assign subpath = page.path %}
 
+        {% assign linkpath = subpath %}
+
         {% if ext == "md" %}
           {% if dirs.last == "README.md" %}
             {% assign linkpath = subpath | replace: 'README.md', 'index.html' %}
