@@ -1,4 +1,14 @@
-{% assign all_pages = site.pages | sort: "path" %}
+{% assign all_pages = site.pages %}
+
+{% assign cpp_files = "" | split: "," %}
+{% for file in site.static_files %}
+  {% assign ext = file.path | split: "." | last | downcase %}
+  {% if ext == "cpp" %}
+    {% assign cpp_files = cpp_files | push: file %}
+  {% endif %}
+{% endfor %}
+
+{% assign all_pages = all_pages | concat: cpp_files | sort: "path" %}
 
 <h1>所有文章</h1>
 
