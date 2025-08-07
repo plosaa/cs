@@ -1,9 +1,6 @@
 {% assign page_paths = "" | split: "," %}
 {% for page in site.pages %}
   {% assign path = page.path %}
-  {% if path contains "/" %}
-    {% assign path = path | remove_first: "/" %}
-  {% endif %}
   {% assign page_paths = page_paths | push: path %}
 {% endfor %}
 
@@ -12,8 +9,8 @@
   {% assign ext = file.path | split: "." | last | downcase %}
   {% if ext == "cpp" %}
     {% assign path = file.path %}
-    {% if path contains "/" %}
-      {% assign path = path | remove_first: "/" %}
+    {% if path | slice: 0, 1 == "/" %}
+      {% assign path = path | slice: 1, path.size %}
     {% endif %}
     {% assign cpp_files = cpp_files | push: path %}
   {% endif %}
@@ -48,7 +45,7 @@
       {% assign dirs = path | split: "/" %}
       {% assign ext = dirs.last | split: "." | last | downcase %}
 
-      {% if path contains category and valid_ext contains ext %}
+      {% if dirs[0] == category and valid_ext contains ext %}
         {% assign title = path %}
         {% assign subpath = path %}
 
