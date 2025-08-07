@@ -4,11 +4,15 @@
 {% for file in site.static_files %}
   {% assign ext = file.path | split: "." | last | downcase %}
   {% if ext == "cpp" %}
-    {% assign cpp_files = cpp_files | push: file %}
+    {% assign path = file.path %}
+    {% if path contains "/" %}
+      {% assign path = path | remove_first: "/" %}
+    {% endif %}
+    {% assign cpp_files = cpp_files | push: path %}
   {% endif %}
 {% endfor %}
 
-{% assign all_pages = all_pages | concat: cpp_files | sort: "path" %}
+{% assign all_pages = all_pages | concat: cpp_files | sort_natural %}
 
 <h1>所有文章</h1>
 
@@ -19,7 +23,7 @@
   {% assign dirs = page.path | split: "/" %}
   {% assign ext = dirs.last | split: "." | last | downcase %}
 
-  {% if valid_ext contains ext and dirs.size > 1 %}
+  {% if valid_ext contains ext and dirs.size > 1 and dirs[0] != "" %}
       {% assign category = dirs[0] %}
       {% unless categories contains category %}
         {% assign categories = categories | push: category %}
