@@ -37,12 +37,19 @@
     {% assign displayed_files = "" | split: "," %}
 
     {% for page in all_pages %}
-      {% assign dirs = page.path | split: "/" %}
+
+      {% if page.path %}
+        {% assign filepath = page.path %}
+      {% else %}
+        {% assign filepath = page %}
+      {% endif %}
+
+      {% assign dirs = filepath | split: "/" %}
       {% assign ext = dirs.last | split: "." | last | downcase %}
 
-      {% if page.path contains category and valid_ext contains ext %}
-        {% assign title = page.path %}
-        {% assign subpath = page.path %}
+      {% if filepath contains category and valid_ext contains ext %}
+        {% assign title = filepath %}
+        {% assign subpath = filepath %}
 
         {% assign linkpath = subpath %}
 
