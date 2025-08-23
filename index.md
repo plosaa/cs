@@ -62,7 +62,10 @@
         {% unless displayed_files contains linkpath %}
           {% assign displayed_files = displayed_files | push: linkpath %}
           <li>
-            <a href="{{ linkpath }}">{{ linkpath }}</a>
+            {% assign parts = linkpath | split: "/" %}
+            {% assign displaypath = parts | slice: 1, parts.size %}
+            {% assign displaypath = displaypath | join: "/" %}
+            <a href="{{ linkpath }}">{{ displaypath }}</a>
           </li>
         {% endunless %}
       {% endif %}
