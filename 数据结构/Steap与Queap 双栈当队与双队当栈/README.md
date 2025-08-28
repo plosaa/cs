@@ -64,7 +64,7 @@ Stack / Queue + Heap，让栈和队列能`getMax()`
 
 > [oiwiki 均摊复杂度](https://oi-wiki.org/basic/amortized-analysis/)
 
-定义势能函数 $ \Phi_{k} = |R_k| - |F_k| $ ，为栈大小的差值。
+定义势能函数 $\Phi_{k} = \lvert R_k \rvert - \lvert F_k \rvert$，为栈大小的差值。
 
 于是，均摊成本 $A_k = T_k + \Phi_{k} - \Phi_{k - 1}$ ， $T_k$ 为第 $k$ 次操作的实际代价。
 
