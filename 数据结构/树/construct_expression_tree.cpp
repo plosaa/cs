@@ -1,3 +1,7 @@
+/*
+描述: 根据后缀表达式构造表达式树
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
