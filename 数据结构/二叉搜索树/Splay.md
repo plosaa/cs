@@ -74,7 +74,7 @@ zig-zag / zag-zig 对单链是怎样的作用？
 
 ![img](img/SplayTree/图08-08.伸展树的节点插入.png)
 
-这两种实现得到的树根虽然都是 $v$ ，但是得到的树的结构可能不同。用[可视化网站](https://www.cs.usfca.edu/~galles/visualization/SplayTree.html)来看：
+这两种实现得到的树根虽然都是 $v$ ，但是得到的树的结构可能不同。用[可视化网站](https://www.cs.usfca.edu/~galles/visualization/SplayTree.html)来看（可视化网站上用的是直观方法，调成一步步演示可以看出来）：
 
 1. 先插入 1 2 3 4 5 6 得到一条单链，然后 Splay::search(1)，等价于直观实现的 insert(1)
 
