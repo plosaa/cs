@@ -110,7 +110,7 @@ $$
 \Phi(S) = \sum_{v \in S} log|v| ，其中 |v| = 节点 v 的后代数目(包含 v，或者定义为子树 v 的节点规模)
 $$
 
-也就是说单个节点的势能为 $log|v|$ ，树的势能为所有节点势能之和。
+也就是说单个节点的势能为 $log \lvert v \rvert$ ，树的势能为所有节点势能之和。
 
 叶节点的势能会是 $0$ 。
 
@@ -202,7 +202,7 @@ $$
 
 最后一步放大：
 
-由于势函数 $log_2(x)$为凹函数，$\frac{loga + logb}{2} \le log\frac{a + b}{2}，所以 log|g'| + log|p'| \le 2 \cdot (log(|g'| + |p'|) - 1) < 2 \cdot (log|v'| - 1)$ ，即 $\Phi'(g) + \Phi'(p) \le 2 \cdot \Phi'(v) - 2$
+由于势函数 $log_2(x)$为凹函数，$\frac{loga + logb}{2} \le log\frac{a + b}{2}$ ，所以 $log \lvert g' \rvert + log \lvert p' \rvert \le 2 \cdot (log( \lvert g' \rvert + \lvert p' \rvert) - 1) < 2 \cdot (log \lvert v' \rvert - 1)$ ，即 $\Phi'(g) + \Phi'(p) \le 2 \cdot \Phi'(v) - 2$
 
 ### zig-zig / zag-zag
 
@@ -228,7 +228,7 @@ T =& A + \Delta \Phi \\
 \end{align*}
 $$
 
-最后一步的放大同样用到了 $logx$ 的凹性，不过这里要选 $v$ 和 $g'$ 两个点，其包含了 $4$ 棵子树和 $v, p$ 两个点，$log|v| + log|g'| \le 2 \cdot (log(|v| + |g'|) - 1) < 2 \cdot (log|v'| - 1)$ ，即 $\Phi(v) + \Phi'(g) < 2 \cdot \Phi'(v) - 2$ 。
+最后一步的放大同样用到了 $logx$ 的凹性，不过这里要选 $v$ 和 $g'$ 两个点，其包含了 $4$ 棵子树和 $v, p$ 两个点，$log \lvert v \rvert + log \lvert g' \rvert \le 2 \cdot (log(\lvert v \rvert + \lvert g' \rvert) - 1) < 2 \cdot (log \lvert v' \rvert - 1)$ ，即 $\Phi(v) + \Phi'(g) < 2 \cdot \Phi'(v) - 2$ 。
 
 综合以上三种情况，一次把 $v$ 旋转到根的所有旋转，其分摊成本加起来为： $A_k \le 1 + 3 \cdot [\Phi(r) - \Phi(v)] \le 1 + 3 \cdot \Phi(r) = O(logn)$，于是 $\sum A_k = O(mlogn)$。
 
