@@ -62,9 +62,9 @@ zig-zag / zag-zig 对单链是怎样的作用？
 
 ### 补充上面
 
-和研友[~](https://space.bilibili.com/430969578)聊天，他突然想了这么一种方式：间隔插新的最大/最小值，这样能生成这种折线形单链。
+和研友[~](https://space.bilibili.com/430969578)聊天，他突然想了这么一种方式：交替插新的最大/最小值，这样能生成这种折线形单链。
 
-以下称：从 $1 \sim n$ 中间开始往两边，对称地交替选取并插入SplayTree 为 min / max 间隔插。这么叫是因为每次选出来的值交替地为新的 min / max，即 ... max min max min ...
+以下称：从 $1 \sim n$ 中间开始往两边，对称地交替选取并插入SplayTree 为 min / max 交替插。这么叫是因为每次选出来的值交替地为新的 min / max，即 ... max min max min ...
 
 具体来说：
 
