@@ -1,0 +1,1 @@
+就是字符串哈希，见 coding-practice 仓
