@@ -5,6 +5,7 @@
 {% endfor %}
 
 {% assign cpp_files = "" | split: "," %}
+{% comment %}
 {% for file in site.static_files %}
   {% assign ext = file.path | split: "." | last | downcase %}
   {% if ext == "cpp" %}
@@ -15,6 +16,7 @@
     {% assign cpp_files = cpp_files | push: path %}
   {% endif %}
 {% endfor %}
+{% endcomment %}
 
 {% assign all_paths = page_paths | concat: cpp_files | sort_natural %}
 
